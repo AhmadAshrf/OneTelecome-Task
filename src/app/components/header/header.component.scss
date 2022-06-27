@@ -1,0 +1,23 @@
+nav a span{
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+nav a span:first-child{
+    color: rgb(255, 124, 22);
+    padding-left: 70px;
+}
+nav .navbar-collapse{
+    justify-content:flex-end
+} 
+nav .navbar-collapse .navbar-nav li.nav-item a:last-of-type{
+    padding: 8px; 
+    margin-right: 50px;  
+}
+// nav .navbar-collapse .navbar-nav li.nav-item a:last-child{
+//     margin-right: 50px;
+// }
+nav .navbar-collapse .navbar-nav li.nav-item a.active{
+    background-color:  rgb(255, 124, 22);
+    border-radius: 5px;
+}

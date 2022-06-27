@@ -1,0 +1,22 @@
+<div *ngIf="isLoaded" class="d-flex justify-content-center pt-5 pb-5">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+<div *ngIf="!isLoaded" class="container mb-5">
+    <div class="mt-5 card text-center">
+        <div class="card-header">
+          {{newsDetails?.title}}
+        </div>
+        <div class="card-body">
+            <img [src]="newsDetails?.urlToImage" class="img-fluid w-75">
+            <div class="m-5" innerHtml="{{newsDetails?.content}}">{{newsDetails?.content}}</div>
+        </div>
+        <div class="card-footer text-muted">
+        <i class="fa-solid fa-calendar-day"></i>
+          Post Date : {{newsDetails?.publishedDate}}
+        </div>
+        <a class="btn btn-primary" routerLink="/home">Back to Home</a>
+      </div>
+    
+</div>

@@ -1,0 +1,36 @@
+<!-- Start banner section-->
+<div class="slider">
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let banners of bannerSlides" [ngClass]="{'active':banners.order == 1}">
+        <div *ngIf="isLoaded" class="d-flex justify-content-center pt-5 pb-5">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div class="overlay"></div>
+        <img [src]="banners.imgUrl" class="img-fluid d-block w-100">
+        <h4 [style.background-color]="banners.colorCode" class="banner-title">{{banners.title}}</h4>
+        <div class="brief">
+          <div class="cate" [style.color]="banners.colorCode">#{{banners.category}}</div>
+          {{banners.brief}}
+          <a [style.background-color]="banners.colorCode" class="find-more mt-2 nav-link" target="_blank" href="#">Find
+            out more</a>
+          <a class="watch nav-link" target="_blank" href="#"><span><i class="fa-solid fa-play 2x"></i>Play
+              Now!</span></a>
+        </div>
+      </div>
+    </div>
+    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button> -->
+  </div>
+</div>
+<!--End banner section -->
+<app-about-us></app-about-us>
+<app-latest-news></app-latest-news>

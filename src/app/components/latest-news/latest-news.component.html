@@ -1,0 +1,53 @@
+<!--Start Latest news Section-->
+<div class="latest">
+    <h2 class="main-title">Latest Work</h2>
+    <div class="container">
+      <div class="row">
+        <!-- <select class="form-control" #cate [(ngModel)]="selectedID"> -->
+        <select class="form-control" #cate (change)="sentCateValue(cate.value)">
+          <option value="0" selected>All</option>
+          <option *ngFor="let cate of newsCategory" [value]="cate.id">{{cate.name}}</option>
+        </select>
+        <div *ngIf="isLoaded" class="d-flex justify-content-center pt-5 pb-5">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" *ngFor="let newsData of news">
+          <div class="box">
+            <img class="img-fluid" [src]="newsData?.urlToImage" [alt]="newsData?.description">
+            <div class="content">
+              <h3>{{newsData?.title}}</h3>
+              <p>{{newsData?.description}}</p>
+              <div class="info">
+                <a class="read-more" routerLink="/details/{{newsData.id}}">
+                  <i class="fa-solid fa-book"></i>
+                  Read More
+                </a>
+                <div (click)="saveItem(newsData.id)">
+                  <a *ngIf="!savedItems" class="read-more fav">
+                    <i class="fa-solid fa-thumbs-up"></i>
+                  </a>
+                  <a *ngIf="savedItems" class="read-more fav">
+                    <i class="fa-solid fa-thumbs-down"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card p-3">
+              Share
+              <a href=""><i class="fa-brands fa-facebook fa-2x"></i></a>
+              <a href=""><i class="fa-brands fa-instagram fa-2x"></i></a>
+              <a href=""><i class="fa-brands fa-twitter fa-2x"></i></a>
+            </div>
+            <div class="card-footer text-muted text-center">
+              <i class="fa-solid fa-calendar-day"></i>
+              Post Date : {{newsData?.publishedDate}}
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-warning" *ngIf="news?.length == 0">No items Found</div>
+      </div>
+    </div>
+  </div>
+  <!--End Latest news Section-->
